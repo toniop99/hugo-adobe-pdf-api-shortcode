@@ -3,8 +3,9 @@
 # Table of Contents  
 
 * [Intro](#intro)
-* [Install](#install)  
-* [Usage](#how-to-use)  
+* [Install](#install)
+* [Usage](#how-to-use)
+* [Examples](#examples)
 
 ---
 
@@ -45,3 +46,10 @@ In your Hugo website place the following shortcode in any of the markdown pages.
 - **url (required)** : The relative location of the file.  
 - **fileName (optional)**: Name of the file. Default to url provided. 
 - **type (optional)<FULL_WINDOW, SIZED_CONTAINER, IN_LINE OR LIGHT_BOX>**: How the pdf will be shown. Default to **IN_LINE** More info on [Adobe API Doc](https://developer.adobe.com/document-services/docs/overview/pdf-embed-api/howtos/)
+
+### Examples
+#### IN LINE
+![IN_LINE](./imgs/in_line_sample.png)
+#### LightBox
+![LIGHT_BOX](./imgs/light_box_sample.png)
+
