@@ -12,7 +12,7 @@
 */}}
 {{ $number := index (seq 200 | shuffle) 0 }}
 
-<div id="{{ $number }}-pdf"></div>
+<div class="pdf-viewer" id="{{ $number }}-pdf"></div>
 
 <script>
     const viewerConfig = {
