@@ -1,0 +1,39 @@
+{{ with site.Params.adobeClientId }}
+{{ else }}
+{{ errorf "missing value for param 'adobeClientId': %s" .Position }}
+{{ end }}
+
+{{ $url := .Get "url" }}
+{{ $type := .Get "type" }}
+{{ $fileName = .Get "fileName" }}
+
+{{/*
+    Create random number for div id
+*/}}
+{{ $number := index (seq 200 | shuffle) 0 }}
+
+<div id="{{ $number }}-pdf"></div>
+
+<script>
+    const viewerConfig = {
+        embedMode: "{{ $type }}" || 'IN_LINE'
+    };
+
+    document.addEventListener("adobe_dc_view_sdk.ready", function () {
+        var adobeDCView = new AdobeDC.View({
+            clientId: "{{ site.Params.adobeClientId }}",
+            divId: "{{ $number }}-pdf",
+        });
+
+        adobeDCView.previewFile({
+            content: {
+                location: {
+                    url: "{{ $url }}",
+                }
+            },
+            metaData: {
+                fileName: "{{ $fileName }}" || "{{ $url }}"
+            }
+        }, viewerConfig);
+    });
+</script>
